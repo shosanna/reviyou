@@ -16,6 +16,7 @@ gem "bourbon"
 
 # Forms
 gem "simple_form"
+gem "rdiscount"
 
 # Server
 gem "pg"

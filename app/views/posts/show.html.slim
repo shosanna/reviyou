@@ -1,0 +1,7 @@
+h1 = @post.title
+
+== markdown @post.content
+
+hr
+
+= link_to "Export", export_post_path(@post), class: "btn btn-default"

@@ -1,0 +1,14 @@
+h4 = link_to "back", @post
+
+pre
+  | ---<br>
+  | title: "#{@post.title}"<br>
+  | date: #{@post.created_at}<br>
+  | tags:<br>
+  | author: #{current_user.email}<br>
+  | layout: post<br>
+  | ---<br>
+  br
+  = @post.content
+
+

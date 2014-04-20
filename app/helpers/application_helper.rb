@@ -10,4 +10,8 @@ module ApplicationHelper
       "alert alert-info"
     end
   end
+
+  def markdown(text)
+    RDiscount.new(text).to_html
+  end
 end

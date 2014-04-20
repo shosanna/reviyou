@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  resource :posts
+  resources :posts do
+    member do
+      get :export
+    end
+  end
   root to: "posts#index"
 end
