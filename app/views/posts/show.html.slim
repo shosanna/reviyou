@@ -1,6 +1,15 @@
-h1 = @post.title
+.post data-post-text=@post.content
+  pre == content_with_comments @post
 
-== markdown @post.content
+  hr
+
+  = simple_form_for [@post, @comment] do |f|
+    = f.input :selected_text
+    = f.input :start_offset
+    = f.input :end_offset
+    = f.input :text
+
+    button.btn.btn-primary type="submit" Add comment
 
 hr
 

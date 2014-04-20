@@ -5,11 +5,10 @@ p These are your posts.
 hr
 
 - @posts.each do |post|
-  h4 = post.title
+  .post data-post-id=post.id
+    == markdown post.content
 
-  == markdown post.content
-
-  = link_to "Share with a reviewer", post, class: "btn btn-success"
+    = link_to "Share with a reviewer", post, class: "btn btn-success"
 
   hr
 
