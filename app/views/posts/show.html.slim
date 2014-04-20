@@ -1,15 +1,21 @@
+h1 Viewing post
+
 .post data-post-text=@post.content
-  pre == content_with_comments @post
+  pre.post-preview == content_with_comments @post
 
   hr
 
   = simple_form_for [@post, @comment] do |f|
+    = f.input :text, as: :string
+
+    button.btn.btn-primary type="submit" Add comment
+
+    hr
+    h4 Debugging
+
     = f.input :selected_text
     = f.input :start_offset
     = f.input :end_offset
-    = f.input :text
-
-    button.btn.btn-primary type="submit" Add comment
 
 hr
 

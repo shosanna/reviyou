@@ -2,5 +2,15 @@ $container-large-desktop: 720px;
 @import "bootstrap";
 
 .with-comments {
+  font-weight: bold;
   text-decoration: underline;
+}
+
+pre.post-preview {
+  background: #fff;
+  border: none;
+  font-family: "Helvetica", "Arial", sans-serif;
+  font-size: 18px;
+  line-height: 1.4;
+  padding: 0;
 }

@@ -33,6 +33,7 @@ group :development, :test do
   gem "thin", "~> 1.6.1"
 
   # Testing
+  gem "rspec"
   gem "rspec-rails"
   gem "factory_girl_rails"
   gem "simplecov", require: false

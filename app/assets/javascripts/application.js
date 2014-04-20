@@ -4,26 +4,33 @@
 //= require_tree .
 
 $(function() {
-
   $("[data-toggle=tooltip]").tooltip();
 
   $(".post").mouseup(function(e) {
-    var originalText = $("[data-post-text]").attr("data-post-text");
-
     var selection = window.getSelection();
 
-    var startOffset = Math.min(selection.baseOffset, selection.extentOffset),
-        endOffset   = Math.max(selection.baseOffset, selection.extentOffset),
-        text = selection.baseNode.textContent.substr(startOffset, endOffset - startOffset);
+    var startOffset = selection.anchorOffset,
+        range       = selection.getRangeAt(0),
+        length      = range.toString().length,
+        text        = range.toString();
 
-    if (startOffset != endOffset) {
-      showCommentBox(text, startOffset, endOffset);
+    var p = e.target;
+    var r = document.createRange();
+
+    r.selectNode(p);
+    r.setEndBefore(selection.focusNode, 0);
+
+    var prefixLength = r.toString().length;
+    var newStartOffset = prefixLength + startOffset;
+
+    if (length > 0) {
+      updateForm(text, newStartOffset, length);
     }
   });
 
-  function showCommentBox(text, start, end) {
+  function updateForm(text, start, length) {
     $("#comment_selected_text").val(text);
     $("#comment_start_offset").val(start);
-    $("#comment_end_offset").val(end);
+    $("#comment_end_offset").val(length);
   }
 });

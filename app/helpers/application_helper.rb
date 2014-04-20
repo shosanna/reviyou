@@ -3,13 +3,20 @@ module ApplicationHelper
 
     content = post.content
 
-    post.comments.order("start_offset DESC").each do |comment|
-      text = content[comment.start_offset, comment.end_offset]
+    cumulative = 0
+
+    post.comments.order("start_offset ASC").each do |comment|
+      start_offset = comment.start_offset + cumulative
+      end_offset   = comment.end_offset
+
+      text = content[start_offset, end_offset]
 
       text = content_tag(:span, text, title: comment.text, data: { toggle: "tooltip" },
                          class: "with-comments")
 
-      content[comment.start_offset, comment.end_offset] = text
+      cumulative += text.length - comment.text.length
+
+      content[start_offset, end_offset] = text
     end
 
     content

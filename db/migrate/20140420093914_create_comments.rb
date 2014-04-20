@@ -1,6 +1,6 @@
 class CreateComments < ActiveRecord::Migration
   def change
-    create_table :comments do |t|
+    create_table :comments, id: :uuid do |t|
       t.text :text
       t.text :selected_text
       t.integer :start_offset
