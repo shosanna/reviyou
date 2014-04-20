@@ -10,11 +10,13 @@ class Comment < ActiveRecord::Base
     comments.each do |comment|
       start_offset = comment.start_offset + cumulative
 
-      text = content[start_offset, comment.end_offset]
+      text = content[start_offset, comment.length]
 
-      content[start_offset, comment.end_offset] = "[[[#{comment.id}|#{text}]]]"
+      comment_text = "[#{comment.id}|#{text}]"
 
-      cumulative += 8
+      content[start_offset, comment.length] = comment_text
+
+      cumulative += comment_text.length - comment.length
     end
 
     content
