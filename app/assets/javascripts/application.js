@@ -9,7 +9,7 @@ $(function() {
   $(".post").mouseup(function(e) {
     var selection = window.getSelection();
 
-    var startOffset = selection.anchorOffset,
+    var startOffset = Math.min(selection.anchorOffset, selection.focusOffset),
         range       = selection.getRangeAt(0),
         length      = range.toString().length,
         text        = range.toString();

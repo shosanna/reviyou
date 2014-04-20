@@ -1,13 +1,14 @@
 module Reviyou
   class Content
     def initialize(text)
-      @original_text = text
+      @original_text = text.gsub("\r\n", "\n")
     end
 
     def replace(comments)
       text, cumulative = original_text.dup, 0
 
       comments.inject(0) do |offset, comment|
+
         start_offset = comment.start_offset + offset
 
         selection = text[start_offset, comment.length]

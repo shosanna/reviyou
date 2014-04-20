@@ -1,6 +1,9 @@
 module ApplicationHelper
   def content_with_comments(post)
-    Reviyou::Content.new(post.content).replace(post.comments.order("start_offset asc"))
+    content = Reviyou::Content.new(post.content)
+    content.replace(post.comments.order("start_offset asc")) do |comment, selection|
+      content_tag(:span, selection, title: comment.text, data: { toggle: "tooltip" }, class: "with-comments")
+    end
   end
 
   def flash_class(level)

@@ -20,3 +20,4 @@ h1 = @post.title
 hr
 
 = link_to "Export", export_post_path(@post), class: "btn btn-default"
+= link_to "Delete", @post, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }

@@ -25,6 +25,11 @@ class PostsController < AuthenticatedController
     @post = current_user.posts.find(params[:id])
   end
 
+  def destroy
+    current_user.posts.find(params[:id]).destroy
+    redirect_to posts_path, notice: "Post was removed."
+  end
+
   private
 
   def post_params
