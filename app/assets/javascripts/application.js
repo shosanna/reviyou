@@ -31,6 +31,6 @@ $(function() {
   function updateForm(text, start, length) {
     $("#comment_selected_text").val(text);
     $("#comment_start_offset").val(start);
-    $("#comment_end_offset").val(length);
+    $("#comment_length").val(length);
   }
 });

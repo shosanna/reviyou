@@ -13,6 +13,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:text, :start_offset, :end_offset, :selected_text)
+    params.require(:comment).permit(:text, :start_offset, :length, :selected_text)
   end
 end
