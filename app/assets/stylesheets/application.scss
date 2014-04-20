@@ -16,9 +16,11 @@ pre.post-preview {
 }
 
 .fixed-bottom-comment-form {
-  position: fixed;
-  height: 150px;
   background: #fff;
   bottom: 0;
+  height: 150px;
+
+  padding: 20px;
+  position: fixed;
   width: 400px;
 }
