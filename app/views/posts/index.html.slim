@@ -1,0 +1,12 @@
+h1 Welcome to Reviyou
+
+- @posts.each do |post|
+  h4 = post.title
+
+  == post.content
+
+= simple_form_for @post do |f|
+  = f.input :title
+  = f.input :content
+
+  button.btn.btn-primary type="submit" Create post
