@@ -5,6 +5,10 @@ h1 = @post.title
 
   hr
 
+= link_to "Export", export_post_path(@post), class: "btn btn-default"
+= link_to "Delete", @post, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }
+
+.fixed-bottom-comment-form
   = simple_form_for [@post, @comment] do |f|
     = f.input :text, as: :string
 
@@ -13,11 +17,7 @@ h1 = @post.title
     hr
     h4 Debugging
 
-    = f.input :selected_text
-    = f.input :start_offset
-    = f.input :length
-
-hr
-
-= link_to "Export", export_post_path(@post), class: "btn btn-default"
-= link_to "Delete", @post, method: :delete, class: "btn btn-danger", data: { confirm: "Are you sure?" }
+    div style="display: none"
+      = f.input :selected_text
+      = f.input :start_offset
+      = f.input :length

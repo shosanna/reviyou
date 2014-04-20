@@ -14,3 +14,11 @@ pre.post-preview {
   line-height: 1.4;
   padding: 0;
 }
+
+.fixed-bottom-comment-form {
+  position: fixed;
+  height: 150px;
+  background: #fff;
+  bottom: 0;
+  width: 400px;
+}
